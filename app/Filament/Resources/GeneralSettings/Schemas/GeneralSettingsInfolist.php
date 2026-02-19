@@ -10,11 +10,7 @@ class GeneralSettingsInfolist
     {
         return $schema
             ->components([
-                InfoList::make()
-                    ->schema([
-                        InfoListEntry::make('key'),
-                        InfoListEntry::make('value'),
-                    ]),
+                //
             ]);
     }
 }
