@@ -22,7 +22,11 @@ class PatientCaseResource extends Resource
 {
     protected static ?string $model = PatientCase::class;
 
-    protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedRectangleStack;
+    protected static string|\UnitEnum|null $navigationGroup = 'Reports';
+
+    protected static ?string $navigationLabel = 'Patient Case Listing';
+
+    protected static ?int $navigationSort = 1;
 
     protected static ?string $recordTitleAttribute = 'Patient Case';
 

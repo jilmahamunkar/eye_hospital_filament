@@ -22,7 +22,11 @@ class OperationTypesResource extends Resource
 {
     protected static ?string $model = OperationTypes::class;
 
-    protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedRectangleStack;
+    protected static string|\UnitEnum|null $navigationGroup = 'Settings';
+
+    protected static ?string $navigationLabel = 'Operation Type module';
+
+    protected static ?int $navigationSort = 2;
 
     protected static ?string $recordTitleAttribute = 'Operation Types';
 

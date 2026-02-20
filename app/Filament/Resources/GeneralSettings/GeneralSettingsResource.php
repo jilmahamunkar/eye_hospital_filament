@@ -22,7 +22,11 @@ class GeneralSettingsResource extends Resource
 {
     protected static ?string $model = GeneralSettings::class;
 
-    protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedRectangleStack;
+    protected static string|\UnitEnum|null $navigationGroup = 'Settings';
+
+    protected static ?string $navigationLabel = 'General Setting Module';
+
+    protected static ?int $navigationSort = 1;
 
     protected static ?string $recordTitleAttribute = 'General Settings';
 

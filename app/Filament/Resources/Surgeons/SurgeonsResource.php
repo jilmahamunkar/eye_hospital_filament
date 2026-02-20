@@ -22,7 +22,11 @@ class SurgeonsResource extends Resource
 {
     protected static ?string $model = Surgeons::class;
 
-    protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedRectangleStack;
+    protected static string|\UnitEnum|null $navigationGroup = 'Settings';
+
+    protected static ?string $navigationLabel = 'Surgeon Module';
+
+    protected static ?int $navigationSort = 3;
 
     protected static ?string $recordTitleAttribute = 'Surgeons';
 

@@ -17,6 +17,10 @@ use Illuminate\Foundation\Http\Middleware\VerifyCsrfToken;
 use Illuminate\Routing\Middleware\SubstituteBindings;
 use Illuminate\Session\Middleware\StartSession;
 use Illuminate\View\Middleware\ShareErrorsFromSession;
+use App\Filament\Resources\PatientCases\PatientCaseResource;
+use App\Filament\Resources\PatientOperations\PatientOperationResource;
+use Filament\Navigation\NavigationGroup;
+use Filament\Navigation\NavigationItem;
 
 class AdminPanelProvider extends PanelProvider
 {
@@ -34,6 +38,24 @@ class AdminPanelProvider extends PanelProvider
             ->discoverPages(in: app_path('Filament/Pages'), for: 'App\Filament\Pages')
             ->pages([
                 Dashboard::class,
+            ])
+            ->navigationItems([
+                NavigationItem::make('Create Patient Case')
+                    ->url(fn (): string => PatientCaseResource::getUrl('create'))
+                    ->icon('heroicon-o-user-plus')
+                    ->isActiveWhen(fn () => request()->routeIs('filament.admin.resources.patient-cases.create'))
+                    ->sort(2),
+                NavigationItem::make('Create Operation Card')
+                    ->url(fn (): string => PatientOperationResource::getUrl('create'))
+                    ->icon('heroicon-o-identification')
+                    ->isActiveWhen(fn () => request()->routeIs('filament.admin.resources.patient-operations.create'))
+                    ->sort(3),
+            ])
+            ->navigationGroups([
+                NavigationGroup::make()
+                    ->label('Reports'),
+                NavigationGroup::make()
+                    ->label('Settings'),
             ])
             ->discoverWidgets(in: app_path('Filament/Widgets'), for: 'App\Filament\Widgets')
             ->widgets([
