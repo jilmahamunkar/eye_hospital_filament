@@ -14,7 +14,7 @@ class GeneralSettingsSeeder extends Seeder
     {
         $generalSettings = [
             [
-                'key' => 'case_fee',
+                'key' => 'case_fees',
                 'value' => '50',
             ],
             [
